@@ -10,7 +10,7 @@ import java.util.Set;
 @Entity
 @Table(name = "users",
     uniqueConstraints = {
-        @UniqueConstraint(columnNames = "username"),
+        @UniqueConstraint(columnNames = "name"),
             @UniqueConstraint(columnNames = "email")
     })
 public class User {
@@ -21,7 +21,7 @@ public class User {
 
     @NotBlank
     @Size(max = 20)
-    private String username;
+    private String name;
 
     @NotBlank
     @Size(max = 50)
@@ -43,8 +43,8 @@ public class User {
     public User() {
     }
 
-    public User(String username, String email, String password) {
-        this.username = username;
+    public User(String name, String email, String password) {
+        this.name = name;
         this.email = email;
         this.password = password;
     }
@@ -57,12 +57,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {

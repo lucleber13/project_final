@@ -4,9 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) // JOINED
@@ -39,14 +37,14 @@ public abstract class Car implements Serializable {
     @Column(nullable = false)
     private int keysNumber;
 
-    @OneToOne(targetEntity = Car.class)
-    @JoinColumn(name = "stock_cars", nullable = true,
-            foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "stock_cars_id_fk"))
-    private Car carStock;
-    @OneToOne(targetEntity = Car.class)
-    @JoinColumn(name = "sold_cars", nullable = true,
-           foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "sold_cars_id_fk"))
-    private Car carSold;
+//    @OneToOne(targetEntity = Car.class)
+//    @JoinColumn(name = "stock_cars", nullable = true,
+//            foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "stock_cars_id_fk"))
+//    private Car carStock;
+//    @OneToOne(targetEntity = Car.class)
+//    @JoinColumn(name = "sold_cars", nullable = true,
+//           foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "sold_cars_id_fk"))
+//    private Car carSold;
 
     public Long getId() {
         return id;
@@ -88,21 +86,21 @@ public abstract class Car implements Serializable {
         this.keysNumber = keysNumber;
     }
 
-    public Car getCarStock() {
-        return carStock;
-    }
-
-    public void setCarStock(Car carStock) {
-        this.carStock = carStock;
-    }
-
-    public Car getCarSold() {
-        return carSold;
-    }
-
-    public void setCarSold(Car carSold) {
-        this.carSold = carSold;
-    }
+//    public Car getCarStock() {
+//        return carStock;
+//    }
+//
+//    public void setCarStock(Car carStock) {
+//        this.carStock = carStock;
+//    }
+//
+//    public Car getCarSold() {
+//        return carSold;
+//    }
+//
+//    public void setCarSold(Car carSold) {
+//        this.carSold = carSold;
+//    }
 
     @Override
     public boolean equals(Object o) {
@@ -113,12 +111,12 @@ public abstract class Car implements Serializable {
                 && model.equals(car.model)
                 && color.equals(car.color)
                 && regNumber.equals(car.regNumber)
-                && Objects.equals(carStock, car.carStock)
-                && Objects.equals(carSold, car.carSold);
+                /*&& Objects.equals(carStock, car.carStock)
+                && Objects.equals(carSold, car.carSold)*/;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, model, color, regNumber, keysNumber, carStock, carSold);
+        return Objects.hash(id, model, color, regNumber, keysNumber/*, carStock, carSold*/);
     }
 }

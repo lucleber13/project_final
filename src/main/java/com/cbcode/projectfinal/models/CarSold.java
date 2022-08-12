@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "sold_car")
 @PrimaryKeyJoinColumn(name = "id")
-public class SoldCar extends Car {
+public class CarSold extends Car {
 
     private static final long serialVersionUID = 1L;
 

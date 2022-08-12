@@ -7,7 +7,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "stock_car")
 @PrimaryKeyJoinColumn(name = "id")
-public class StockCar extends Car {
+public class CarStoke extends Car {
 
     private static final long serialVersionUID = 1L;
 
