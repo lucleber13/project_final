@@ -40,7 +40,7 @@ public class SalesCarSold extends CarSold{
 
     public User getUserName(User user) {
         if (user != null) {
-            user.getName();
+            user.getUsername();
         }
         return user;
     }

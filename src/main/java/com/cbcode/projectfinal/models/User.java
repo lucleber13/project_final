@@ -10,7 +10,7 @@ import java.util.Set;
 @Entity
 @Table(name = "users",
     uniqueConstraints = {
-        @UniqueConstraint(columnNames = "name"),
+        @UniqueConstraint(columnNames = "username"),
             @UniqueConstraint(columnNames = "email")
     })
 public class User {
@@ -21,7 +21,7 @@ public class User {
 
     @NotBlank
     @Size(max = 20)
-    private String name;
+    private String username;
 
     @NotBlank
     @Size(max = 50)
@@ -38,13 +38,11 @@ public class User {
         inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<Role>();
 
-
-
     public User() {
     }
 
-    public User(String name, String email, String password) {
-        this.name = name;
+    public User(String username, String email, String password) {
+        this.username = username;
         this.email = email;
         this.password = password;
     }
@@ -57,12 +55,12 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
